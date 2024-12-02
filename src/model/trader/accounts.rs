@@ -167,29 +167,30 @@ pub struct CashBalance {
     pub short_option_market_value: Option<f64>,
 }
 
+#[skip_serializing_none]
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Position {
-    pub short_quantity: f64,
-    pub average_price: f64,
-    pub current_day_profit_loss: f64,
-    pub current_day_profit_loss_percentage: i64,
-    pub long_quantity: f64,
-    pub settled_long_quantity: f64,
-    pub settled_short_quantity: f64,
-    pub aged_quantity: f64,
+    pub short_quantity: Option<f64>,
+    pub average_price: Option<f64>,
+    pub current_day_profit_loss: Option<f64>,
+    pub current_day_profit_loss_percentage: Option<i64>,
+    pub long_quantity: Option<f64>,
+    pub settled_long_quantity: Option<f64>,
+    pub settled_short_quantity: Option<f64>,
+    pub aged_quantity: Option<f64>,
     pub instrument: AccountsInstrument,
-    pub market_value: f64,
-    pub maintenance_requirement: f64,
-    pub average_long_price: f64,
-    pub average_short_price: f64,
-    pub tax_lot_average_long_price: f64,
-    pub tax_lot_average_short_price: f64,
-    pub long_open_profit_loss: f64,
-    pub short_open_profit_loss: f64,
-    pub previous_session_long_quantity: i64,
-    pub previous_session_short_quantity: i64,
-    pub current_day_cost: f64,
+    pub market_value: Option<f64>,
+    pub maintenance_requirement: Option<f64>,
+    pub average_long_price: Option<f64>,
+    pub average_short_price: Option<f64>,
+    pub tax_lot_average_long_price: Option<f64>,
+    pub tax_lot_average_short_price: Option<f64>,
+    pub long_open_profit_loss: Option<f64>,
+    pub short_open_profit_loss: Option<f64>,
+    pub previous_session_long_quantity: Option<i64>,
+    pub previous_session_short_quantity: Option<i64>,
+    pub current_day_cost: Option<f64>,
 }
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]

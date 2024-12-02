@@ -174,7 +174,7 @@ pub struct Position {
     pub short_quantity: Option<f64>,
     pub average_price: Option<f64>,
     pub current_day_profit_loss: Option<f64>,
-    pub current_day_profit_loss_percentage: Option<i64>,
+    pub current_day_profit_loss_percentage: Option<f64>,
     pub long_quantity: Option<f64>,
     pub settled_long_quantity: Option<f64>,
     pub settled_short_quantity: Option<f64>,

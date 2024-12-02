@@ -27,6 +27,7 @@ pub struct SecuritiesAccountBase {
     pub is_closing_only_restricted: bool,
     /// default: false
     pub pfcb_flag: bool,
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub positions: Option<Vec<Position>>,
 }
 
@@ -167,29 +168,30 @@ pub struct CashBalance {
     pub short_option_market_value: Option<f64>,
 }
 
+#[skip_serializing_none]
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Position {
-    pub short_quantity: f64,
-    pub average_price: f64,
-    pub current_day_profit_loss: f64,
-    pub current_day_profit_loss_percentage: i64,
-    pub long_quantity: f64,
-    pub settled_long_quantity: f64,
-    pub settled_short_quantity: f64,
-    pub aged_quantity: f64,
+    pub short_quantity: Option<f64>,
+    pub average_price: Option<f64>,
+    pub current_day_profit_loss: Option<f64>,
+    pub current_day_profit_loss_percentage: Option<f64>,
+    pub long_quantity: Option<f64>,
+    pub settled_long_quantity: Option<f64>,
+    pub settled_short_quantity: Option<f64>,
+    pub aged_quantity: Option<f64>,
     pub instrument: AccountsInstrument,
-    pub market_value: f64,
-    pub maintenance_requirement: f64,
-    pub average_long_price: f64,
-    pub average_short_price: f64,
-    pub tax_lot_average_long_price: f64,
-    pub tax_lot_average_short_price: f64,
-    pub long_open_profit_loss: f64,
-    pub short_open_profit_loss: f64,
-    pub previous_session_long_quantity: i64,
-    pub previous_session_short_quantity: i64,
-    pub current_day_cost: f64,
+    pub market_value: Option<f64>,
+    pub maintenance_requirement: Option<f64>,
+    pub average_long_price: Option<f64>,
+    pub average_short_price: Option<f64>,
+    pub tax_lot_average_long_price: Option<f64>,
+    pub tax_lot_average_short_price: Option<f64>,
+    pub long_open_profit_loss: Option<f64>,
+    pub short_open_profit_loss: Option<f64>,
+    pub previous_session_long_quantity: Option<f64>,
+    pub previous_session_short_quantity: Option<f64>,
+    pub current_day_cost: Option<f64>,
 }
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -246,6 +248,7 @@ pub struct AccountMutualFund {
     pub accounts_base_instrument: AccountsBaseInstrument,
 }
 
+#[skip_serializing_none]
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct AccountOption {
@@ -253,9 +256,9 @@ pub struct AccountOption {
     pub accounts_base_instrument: AccountsBaseInstrument,
 
     /// xml: `OrderedMap` { "name": "optionDeliverables", "wrapped": true }
-    pub option_deliverables: Vec<AccountAPIOptionDeliverable>,
+    pub option_deliverables: Option<Vec<AccountAPIOptionDeliverable>>,
     pub put_call: AccountOptionPullCall,
-    pub option_multiplier: i64,
+    pub option_multiplier: Option<f64>,
     #[serde(rename = "type")]
     pub type_field: AccountOptionType,
     pub underlying_symbol: String,
@@ -291,13 +294,14 @@ pub struct AccountAPIOptionDeliverable {
     pub asset_type: AssetType,
 }
 
+#[skip_serializing_none]
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct AccountsBaseInstrument {
     pub cusip: String,
     pub symbol: String,
-    pub description: String,
-    pub instrument_id: i64,
+    pub description: Option<String>,
+    pub instrument_id: Option<i64>,
     pub net_change: Option<f64>,
 }
 

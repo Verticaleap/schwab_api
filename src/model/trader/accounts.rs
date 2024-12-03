@@ -298,7 +298,7 @@ pub struct AccountsBaseInstrument {
     pub cusip: String,
     pub symbol: String,
     pub description: String,
-    pub instrument_id: i64,
+    pub instrument_id: Option<i64>,
     pub net_change: Option<f64>,
 }
 

@@ -256,7 +256,7 @@ pub struct AccountOption {
     /// xml: `OrderedMap` { "name": "optionDeliverables", "wrapped": true }
     pub option_deliverables: Option<Vec<AccountAPIOptionDeliverable>>,
     pub put_call: AccountOptionPullCall,
-    pub option_multiplier: i64,
+    pub option_multiplier: Option<i64>,
     #[serde(rename = "type")]
     pub type_field: AccountOptionType,
     pub underlying_symbol: String,

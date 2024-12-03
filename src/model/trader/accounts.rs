@@ -294,6 +294,7 @@ pub struct AccountAPIOptionDeliverable {
     pub asset_type: AssetType,
 }
 
+#[skip_serializing_none]
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct AccountsBaseInstrument {

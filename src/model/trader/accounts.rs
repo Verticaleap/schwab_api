@@ -254,7 +254,7 @@ pub struct AccountOption {
     pub accounts_base_instrument: AccountsBaseInstrument,
 
     /// xml: `OrderedMap` { "name": "optionDeliverables", "wrapped": true }
-    pub option_deliverables: Vec<AccountAPIOptionDeliverable>,
+    pub option_deliverables: Option<Vec<AccountAPIOptionDeliverable>>,
     pub put_call: AccountOptionPullCall,
     pub option_multiplier: i64,
     #[serde(rename = "type")]

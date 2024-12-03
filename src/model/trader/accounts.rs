@@ -27,6 +27,7 @@ pub struct SecuritiesAccountBase {
     pub is_closing_only_restricted: bool,
     /// default: false
     pub pfcb_flag: bool,
+    #[serde(skip_serializing_if = "Option::is_none")]
     pub positions: Option<Vec<Position>>,
 }
 
@@ -247,6 +248,7 @@ pub struct AccountMutualFund {
     pub accounts_base_instrument: AccountsBaseInstrument,
 }
 
+#[skip_serializing_none]
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct AccountOption {

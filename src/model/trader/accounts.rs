@@ -297,7 +297,7 @@ pub struct AccountAPIOptionDeliverable {
 pub struct AccountsBaseInstrument {
     pub cusip: String,
     pub symbol: String,
-    pub description: String,
+    pub description: Option<String>,
     pub instrument_id: Option<i64>,
     pub net_change: Option<f64>,
 }

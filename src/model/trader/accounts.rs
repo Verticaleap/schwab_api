@@ -188,8 +188,8 @@ pub struct Position {
     pub tax_lot_average_short_price: Option<f64>,
     pub long_open_profit_loss: Option<f64>,
     pub short_open_profit_loss: Option<f64>,
-    pub previous_session_long_quantity: Option<i64>,
-    pub previous_session_short_quantity: Option<i64>,
+    pub previous_session_long_quantity: Option<f64>,
+    pub previous_session_short_quantity: Option<f64>,
     pub current_day_cost: Option<f64>,
 }
 
@@ -256,7 +256,7 @@ pub struct AccountOption {
     /// xml: `OrderedMap` { "name": "optionDeliverables", "wrapped": true }
     pub option_deliverables: Option<Vec<AccountAPIOptionDeliverable>>,
     pub put_call: AccountOptionPullCall,
-    pub option_multiplier: Option<i64>,
+    pub option_multiplier: Option<f64>,
     #[serde(rename = "type")]
     pub type_field: AccountOptionType,
     pub underlying_symbol: String,

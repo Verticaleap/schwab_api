@@ -181,7 +181,7 @@ impl GetAccountRequest {
         let status = rsp.status();
         if status != StatusCode::OK {
             let error_response = rsp.json::<model::ServiceError>().await?;
-            eprintln!("Error getting account: {:?}", error_response);
+            eprintln!("Error getting account: {:?}. Status code: ", error_response, status);
             return Err(Error::Service(error_response));
         }
     

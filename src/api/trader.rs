@@ -177,22 +177,16 @@ impl GetAccountRequest {
     pub async fn send(self) -> Result<model::Account, Error> {
         let req = self.build();
         let rsp = req.send().await?;
-    
+
         let status = rsp.status();
         if status != StatusCode::OK {
             let error_response = rsp.json::<model::ServiceError>().await?;
-            eprintln!("Error getting account: {:?}. Status code: {}", error_response, status);
             return Err(Error::Service(error_response));
         }
-    
-        // Deserialize into serde_json::Value
-        let json_value: serde_json::Value = rsp.json().await?;
-        // Print the JSON value
-        println!("{:#?}", json_value);
-    
-        // Convert the JSON value back to model::Account
-        let account: model::Account = serde_json::from_value(json_value)?;
-        Ok(account)
+
+        rsp.json::<model::Account>()
+            .await
+            .map_err(std::convert::Into::into)
     }
 }
 

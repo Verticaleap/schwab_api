@@ -285,7 +285,7 @@ pub struct AccountCollectiveInvestment {
     pub accounts_base_instrument: AccountsBaseInstrument,
 }
 
-#[derive(Default, Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct AccountAPIOptionDeliverable {
     pub symbol: String,

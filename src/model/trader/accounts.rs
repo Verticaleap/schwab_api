@@ -290,7 +290,7 @@ pub struct AccountCollectiveInvestment {
 pub struct AccountAPIOptionDeliverable {
     pub symbol: String,
     pub deliverable_units: f64,
-    pub api_currency_type: APICurrencyType,
+    pub api_currency_type: Option<APICurrencyType>,
     pub asset_type: AssetType,
 }
 

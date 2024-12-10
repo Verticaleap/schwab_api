@@ -54,6 +54,7 @@ pub struct Order {
     pub status_description: Option<String>,
 }
 
+#[skip_serializing_none]
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct OrderLegCollection {

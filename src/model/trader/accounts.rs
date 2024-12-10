@@ -288,7 +288,7 @@ pub struct AccountCollectiveInvestment {
 #[derive(Default, Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct AccountAPIOptionDeliverable {
-    pub symbol: i64,
+    pub symbol: String,
     pub deliverable_units: f64,
     pub api_currency_type: APICurrencyType,
     pub asset_type: AssetType,

@@ -1,10 +1,11 @@
-use serde::Deserialize;
-use serde::Serialize;
+use serde::{Serialize, Deserialize};
+use serde_with::skip_serializing_none;
 
 use crate::model::trader::accounts::AccountsInstrument;
 
 use super::preview_order::Instruction;
 
+#[skip_serializing_none]
 #[allow(clippy::struct_field_names)]
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]

@@ -292,7 +292,7 @@ pub struct AccountAPIOptionDeliverable {
     pub symbol: String,
     pub deliverable_units: f64,
     pub api_currency_type: Option<APICurrencyType>,
-    pub asset_type: AssetType,
+    pub asset_type: Option<AssetType>,
 }
 
 #[skip_serializing_none]

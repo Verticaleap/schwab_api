@@ -503,6 +503,8 @@ impl GetOptionChainsRequest {
 
     pub async fn send(self) -> Result<model::OptionChain, Error> {
         let req = self.build();
+
+        println!("Create request: {:?}", req);
         let rsp = req.send().await?;
 
         // let json = rsp.text().await.unwrap();

@@ -362,6 +362,16 @@ pub enum AccountOptionType {
     Unknown,
 }
 
+impl From<&str> for AccountOptionPullCall {
+    fn from(s: &str) -> Self {
+        match s {
+            "PUT" => AccountOptionPullCall::Put,
+            "CALL" => AccountOptionPullCall::Call,
+            _ => AccountOptionPullCall::Unknown,
+        }
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;

@@ -28,7 +28,7 @@ pub struct Order {
     pub stop_type: Option<StopType>,
     pub price_link_basis: Option<PriceLinkBasis>,
     pub price_link_type: Option<PriceLinkType>,
-    pub price: f64,
+    pub price: Option<f64>,
     pub tax_lot_method: Option<TaxLotMethod>,
     /// xml: `OrderedMap` { "name": "orderLegCollection", "wrapped": true }
     pub order_leg_collection: Vec<OrderLegCollection>,

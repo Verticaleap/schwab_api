@@ -93,7 +93,7 @@ impl From<Order> for OrderRequest {
             stop_type: value.stop_type,
             price_link_basis: value.price_link_basis,
             price_link_type: value.price_link_type,
-            price: value.price,
+            price: Some(value.price),
             tax_lot_method: value.tax_lot_method,
             order_leg_collection: Some(
                 value

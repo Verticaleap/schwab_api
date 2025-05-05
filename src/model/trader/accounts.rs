@@ -365,8 +365,8 @@ pub enum AccountOptionType {
 impl From<&str> for AccountOptionPullCall {
     fn from(s: &str) -> Self {
         match s {
-            "PUT" => AccountOptionPullCall::Put,
-            "CALL" => AccountOptionPullCall::Call,
+            "Put" | "PUT" => AccountOptionPullCall::Put,
+            "Call" | "CALL" => AccountOptionPullCall::Call,
             _ => AccountOptionPullCall::Unknown,
         }
     }

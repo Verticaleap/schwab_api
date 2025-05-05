@@ -84,7 +84,7 @@ pub struct OrderActivity {
 #[serde(rename_all = "camelCase")]
 pub struct ExecutionLeg {
     pub leg_id: i64,
-    pub price: Option<f64>,
+    pub price: f64,
     pub quantity: f64,
     pub mismarked_quantity: f64,
     pub instrument_id: i64,
